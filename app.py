@@ -3,6 +3,7 @@ import flask
 from flask import request, jsonify, Flask
 import joblib
 import numpy as np
+import os
 
 app = Flask(__name__)
 @app.route('/')
@@ -18,7 +19,8 @@ def iris():
     class_names = ['setosa', 'versicolor', 'virginica']
     result = {"prediction": class_names[prediction]}
     return jsonify(result)
-
+port = int(os.environ.get("PORT", 8501))
+ 
 
 
 
